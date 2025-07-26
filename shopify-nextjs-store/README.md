@@ -42,14 +42,26 @@ Open [http://localhost:3000](http://localhost:3000) to see your store.
 4. Under **API credentials**, find your **Storefront API access token**
 5. Copy your store domain from your browser URL (e.g., `my-store.myshopify.com`)
 
+## Optional: Trustpilot Integration
+
+The app includes support for displaying Trustpilot reviews. To enable:
+
+1. Get your Trustpilot API credentials from [business.trustpilot.com](https://business.trustpilot.com)
+2. Add them to your `.env.local` file
+3. Reviews will automatically appear at `/reviews`
+
+If credentials are not provided, the reviews page shows an empty state.
+
 ## Features
 
 - ✅ Product listing page
 - ✅ Product detail pages
+- ✅ Customer reviews page (Trustpilot integration)
 - ✅ Server-side rendering
 - ✅ TypeScript support
 - ✅ Tailwind CSS styling
 - ✅ Responsive design
+- ✅ Graceful error handling
 
 ## Project Structure
 
