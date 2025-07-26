@@ -52,10 +52,20 @@ The app includes support for displaying Trustpilot reviews. To enable:
 
 If credentials are not provided, the reviews page shows an empty state.
 
+## Shopify Metaobjects
+
+The app supports displaying custom metaobjects from Shopify:
+
+1. Create metaobjects in Shopify Admin under **Settings** → **Custom data**
+2. Enable Storefront API access for your metaobjects
+3. The `/gallery` page displays "real_customer_closets" metaobjects
+4. Customize the queries in `lib/shopify/queries/metaobjects.ts` for your metaobject types
+
 ## Features
 
 - ✅ Product listing page
 - ✅ Product detail pages
+- ✅ Customer gallery (Shopify metaobjects)
 - ✅ Customer reviews page (Trustpilot integration)
 - ✅ Server-side rendering
 - ✅ TypeScript support

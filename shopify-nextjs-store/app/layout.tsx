@@ -22,6 +22,7 @@ export default function RootLayout({
             <a href="/" className="text-xl font-bold">Shopify Store</a>
             <div className="flex items-center space-x-6">
               <a href="/" className="hover:text-gray-600">Products</a>
+              <a href="/gallery" className="hover:text-gray-600">Gallery</a>
               <a href="/reviews" className="hover:text-gray-600">Reviews</a>
             </div>
           </nav>
