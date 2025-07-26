@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
+import Sidebar from '@/components/layout/Sidebar'
+import Topbar from '@/components/layout/Topbar'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair',
+})
 
 export const metadata: Metadata = {
-  title: 'Shopify Next.js Store',
-  description: 'A modern e-commerce store built with Next.js and Shopify',
+  title: 'NatureNest - Adventure Awaits',
+  description: 'Discover your perfect adventure with our curated collection of nature-inspired gear',
 }
 
 export default function RootLayout({
@@ -15,19 +25,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header className="border-b">
-          <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="text-xl font-bold">Shopify Store</a>
-            <div className="flex items-center space-x-6">
-              <a href="/" className="hover:text-gray-600">Products</a>
-              <a href="/gallery" className="hover:text-gray-600">Gallery</a>
-              <a href="/reviews" className="hover:text-gray-600">Reviews</a>
-            </div>
-          </nav>
-        </header>
-        {children}
+    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <body className="font-sans bg-stone-50">
+        <Sidebar />
+        <Topbar />
+        <main className="ml-0 md:ml-64 mt-20 min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   )

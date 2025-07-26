@@ -2,6 +2,7 @@ import { shopifyFetch } from '@/lib/shopify/client';
 import { GET_CUSTOMER_CLOSETS } from '@/lib/shopify/queries/metaobjects';
 import { MetaobjectsResponse } from '@/lib/shopify/types/metaobjects';
 import CustomerClosetCard from '@/components/CustomerClosetCard';
+import PageWrapper from '@/components/layout/PageWrapper';
 import Link from 'next/link';
 
 export default async function GalleryPage() {
@@ -19,24 +20,18 @@ export default async function GalleryPage() {
   }
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-8">
-        <Link href="/" className="hover:text-gray-700">
-          Home
-        </Link>
-        <span>/</span>
-        <span className="text-gray-900">Customer Gallery</span>
-      </nav>
-
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Real Customer Closets</h1>
-        <p className="text-lg text-gray-600">
-          See how our customers have transformed their spaces with our custom closet solutions.
+    <PageWrapper>
+      <div className="mb-12">
+        <h1 className="text-5xl font-display font-bold text-stone-900 mb-4">
+          Adventure Gallery
+        </h1>
+        <p className="text-xl text-stone-600 max-w-3xl">
+          Witness the incredible journeys our community has embarked upon with their trusted gear.
         </p>
       </div>
 
       {customerClosets.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {customerClosets.map((closet) => (
             <CustomerClosetCard key={closet.id} closet={closet} />
           ))}
@@ -45,7 +40,7 @@ export default async function GalleryPage() {
         <div className="text-center py-16">
           <div className="mb-8">
             <svg
-              className="mx-auto h-24 w-24 text-gray-300"
+              className="mx-auto h-24 w-24 text-stone-300 animate-float"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -58,20 +53,20 @@ export default async function GalleryPage() {
               />
             </svg>
           </div>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            No Gallery Items Yet
+          <h2 className="text-3xl font-display font-semibold text-stone-900 mb-4">
+            Adventures Coming Soon
           </h2>
-          <p className="text-gray-600 mb-8 max-w-md mx-auto">
-            Customer closet projects will appear here once they're added in Shopify as metaobjects.
+          <p className="text-stone-600 mb-8 max-w-md mx-auto text-lg">
+            Our community's epic journeys will be showcased here. Be the first to share your story!
           </p>
           <Link
             href="/"
-            className="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center px-8 py-3 bg-earth-600 text-white rounded-lg hover:bg-earth-700 transition-colors font-medium"
           >
-            Browse Products
+            Start Your Journey
           </Link>
         </div>
       )}
-    </main>
+    </PageWrapper>
   );
 }

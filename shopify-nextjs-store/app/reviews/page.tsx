@@ -1,6 +1,7 @@
 import { fetchTrustpilotReviews } from '@/lib/trustpilot/client';
 import TrustpilotReviews from '@/components/TrustpilotReviews';
 import TrustpilotSummary from '@/components/TrustpilotSummary';
+import PageWrapper from '@/components/layout/PageWrapper';
 import Link from 'next/link';
 
 export default async function ReviewsPage() {
@@ -10,17 +11,15 @@ export default async function ReviewsPage() {
   });
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      {/* Breadcrumb */}
-      <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-8">
-        <Link href="/" className="hover:text-gray-700">
-          Home
-        </Link>
-        <span>/</span>
-        <span className="text-gray-900">Customer Reviews</span>
-      </nav>
-
-      <h1 className="text-4xl font-bold mb-8">Customer Reviews</h1>
+    <PageWrapper>
+      <div className="mb-12">
+        <h1 className="text-5xl font-display font-bold text-stone-900 mb-4">
+          Customer Reviews
+        </h1>
+        <p className="text-xl text-stone-600">
+          Real experiences from our community of adventurers
+        </p>
+      </div>
 
       {businessUnit && reviews ? (
         <div className="grid lg:grid-cols-3 gap-8">
@@ -34,16 +33,16 @@ export default async function ReviewsPage() {
                 businessName={businessUnit.displayName}
               />
               
-              <div className="mt-6 bg-blue-50 rounded-lg p-4">
-                <h3 className="font-semibold text-gray-900 mb-2">Share Your Experience</h3>
-                <p className="text-sm text-gray-600 mb-3">
-                  We value your feedback and would love to hear about your experience with our products.
+              <div className="mt-6 bg-gradient-to-br from-forest-50 to-earth-50 rounded-xl p-6 border border-forest-200">
+                <h3 className="font-semibold text-stone-900 mb-2">Share Your Adventure</h3>
+                <p className="text-sm text-stone-600 mb-3">
+                  Your stories inspire others to explore. Share your experience with our gear.
                 </p>
                 <a
                   href="https://www.trustpilot.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center justify-center w-full px-4 py-2 bg-forest-600 text-white rounded-lg hover:bg-forest-700 transition-colors"
                 >
                   Write a Review
                 </a>
@@ -54,11 +53,11 @@ export default async function ReviewsPage() {
           {/* Reviews Section */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <h2 className="text-2xl font-semibold">
-                What Our Customers Say
+              <h2 className="text-2xl font-semibold text-stone-900">
+                Stories from the Trail
               </h2>
-              <p className="text-gray-600 mt-1">
-                Real reviews from verified customers
+              <p className="text-stone-600 mt-1">
+                Authentic reviews from verified adventurers
               </p>
             </div>
             
@@ -70,7 +69,7 @@ export default async function ReviewsPage() {
         <div className="max-w-2xl mx-auto text-center py-16">
           <div className="mb-8">
             <svg
-              className="mx-auto h-24 w-24 text-gray-300"
+              className="mx-auto h-24 w-24 text-stone-300 animate-float"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -84,28 +83,28 @@ export default async function ReviewsPage() {
             </svg>
           </div>
           
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            No Reviews Yet
+          <h2 className="text-3xl font-display font-semibold text-stone-900 mb-4">
+            The Journey Begins Here
           </h2>
           
-          <p className="text-gray-600 mb-8 max-w-md mx-auto">
-            We're just getting started! Be among the first to share your experience with our products and help others make informed decisions.
+          <p className="text-stone-600 mb-8 max-w-md mx-auto text-lg">
+            Be the first to share your adventure story. Your experience helps guide fellow explorers on their path.
           </p>
           
           <div className="space-y-4">
             <Link
               href="/"
-              className="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center px-8 py-3 bg-forest-600 text-white rounded-lg hover:bg-forest-700 transition-colors font-medium"
             >
-              Continue Shopping
+              Explore Our Gear
             </Link>
             
-            <p className="text-sm text-gray-500">
-              Reviews will appear here once customers start sharing their feedback
+            <p className="text-sm text-stone-500">
+              Reviews will bloom here as our community grows
             </p>
           </div>
         </div>
       )}
-    </main>
+    </PageWrapper>
   );
 }
